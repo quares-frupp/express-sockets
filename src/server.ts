@@ -6,7 +6,7 @@ import {Server} from "http";
 
 dotenv.config();
 
-const PORT = process.env.APP_PORT || 8080;
+const PORT = process.env.PORT || 8080;
 const DB_HOST = process.env.DB_HOST + "";
 const DB_DATABASE = process.env.DB_DATABASE + "";
 
