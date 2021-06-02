@@ -14,5 +14,5 @@ export default async function connectToDb(dbHost: string, dbDatabase: string) {
 }
 
 function makeDbUrl(dbHost: string, dbDatabase: string) {
-    return `mongodb://${dbHost}/${dbDatabase}`
+    return `mongodb+srv://${dbHost}/${dbDatabase}`
 }

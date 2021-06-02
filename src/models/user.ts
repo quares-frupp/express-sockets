@@ -1,6 +1,11 @@
 import { Document, Model, model, Types, Schema, Query } from "mongoose"
 
-const UserSchema = new Schema<UserDocument, UserModel>({
+const UserSchema = new Schema<User, UserModel>({
+    _id: {
+        type: Types.ObjectId,
+        required: true,
+        unique: true
+    },
     username: {
         type: String,
         required: true,
@@ -15,26 +20,28 @@ const UserSchema = new Schema<UserDocument, UserModel>({
         type: Boolean,
         required: false,
         default: true
+    },
+    firstName: {
+        type: String,
+        required: true
+    },
+    lastName: {
+        type: String,
+        required: true
     }
 });
 
 
-export interface User {
+export interface User extends Document {
     username: string,
     password: string,
-    active: boolean
+    active: boolean,
+    firstName: string,
+    lastName: string
 }
 
-interface UserBaseDocument extends User, Document {
-
-}
-
-export interface UserDocument extends UserBaseDocument {
-
-}
-
-export interface UserModel extends Model<UserDocument> {
+export interface UserModel extends Model<User> {
 
 }
 
-export default model<UserDocument, UserModel>("User", UserSchema);
+export default model<User, UserModel>("User", UserSchema);

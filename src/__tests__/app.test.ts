@@ -1,8 +1,8 @@
-import { Application } from "express";
 import request, { Response } from "supertest";
 import createServer from "../app";
+import {Server} from "net";
 
-const app: Application = createServer();
+const app: Server = createServer();
 
 describe("App created successfully", () => {
     test("Response should be OK and 'pong'", done => {
